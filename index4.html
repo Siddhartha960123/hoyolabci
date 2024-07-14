@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoYoLAB Check-ins</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .checkin-buttons a {
+            display: inline-block;
+            margin: 10px 20px;
+            padding: 15px 25px;
+            background-color: #3b3b3b;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .checkin-buttons a:hover {
+            background-color: #5c5c5c;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #1e1e1e;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            height: 80%;
+        }
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>HoYoLAB Daily Check-ins</h1>
+    <div class="checkin-buttons">
+        <a href="javascript:void(0)" onclick="openModal('genshinModal')">Check in for Genshin Impact</a>
+        <a href="javascript:void(0)" onclick="openModal('honkaiSRModal')">Check in for Honkai: Star Rail</a>
+        <a href="javascript:void(0)" onclick="openModal('zzzModal')">Check in for Zenless Zone Zero</a>
+        <a href="javascript:void(0)" onclick="openModal('honkaiImpactModal')">Check in for Honkai Impact 3rd</a>
+        <a href="javascript:void(0)" onclick="openModal('tearsOfThemisModal')">Check in for Tears of Themis</a>
+    </div>
+
+    <!-- Modals -->
+    <div id="genshinModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('genshinModal')">&times;</span>
+            <iframe src="https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481&hyl_auth_required=true&hyl_presentation_style=fullscreen&utm_source=hoyolab&utm_medium=tools&lang=en-us&bbs_theme=dark&bbs_theme_device=1"></iframe>
+        </div>
+    </div>
+    <div id="honkaiSRModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('honkaiSRModal')">&times;</span>
+            <iframe src="https://act.hoyolab.com/bbs/event/signin/hkrpg/e202303301540311.html?act_id=e202303301540311&hyl_auth_required=true&hyl_presentation_style=fullscreen&utm_source=hoyolab&utm_medium=tools&utm_campaign=checkin&utm_id=6&lang=en-us&bbs_theme=dark&bbs_theme_device=1"></iframe>
+        </div>
+    </div>
+    <div id="zzzModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('zzzModal')">&times;</span>
+            <iframe src="https://act.hoyolab.com/bbs/event/signin/zzz/e202406031448091.html?act_id=e202406031448091&hyl_auth_required=true&hyl_presentation_style=fullscreen&utm_campaign=checkin&utm_id=8&utm_medium=tools&utm_source=hoyolab&lang=en-us&bbs_theme=dark&bbs_theme_device=1"></iframe>
+        </div>
+    </div>
+    <div id="honkaiImpactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('honkaiImpactModal')">&times;</span>
+            <iframe src="https://act.hoyolab.com/bbs/event/signin-bh3/index.html?act_id=e202110291205111&utm_source=hoyolab&utm_medium=tools&bbs_theme=dark&bbs_theme_device=1"></iframe>
+        </div>
+    </div>
+    <div id="tearsOfThemisModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('tearsOfThemisModal')">&times;</span>
+            <iframe src="https://act.hoyolab.com/bbs/event/signin/nxx/index.html?act_id=e202202281857121&bbs_presentation_style=fullscreen&bbs_auth_required=true&utm_source=hoyolab&utm_medium=tools&lang=en-us&bbs_theme=dark&bbs_theme_device=1"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName("modal");
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
